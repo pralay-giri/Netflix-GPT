@@ -10,7 +10,7 @@ import { addUser } from "../../store/userSlice";
 import { validateData } from "../utils/validate";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
-import { auth } from "../../firebase";
+import { auth } from "../utils/firebase";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -81,7 +81,6 @@ const Auth = () => {
                     photoURL: DEFAULT_PROFILE,
                 });
 
-                console.log(auth.currentUser);
                 const { displayName, uid, photoURL } = auth.currentUser;
                 dispatch(
                     addUser({
@@ -91,9 +90,7 @@ const Auth = () => {
                         photoURL,
                     })
                 );
-                navigate("/browse");
             } catch (error) {
-                console.log(error);
                 setErrorMessage(error.message);
                 navigate("/error");
             }
@@ -106,8 +103,6 @@ const Auth = () => {
                     email,
                     password
                 );
-                console.log(auth.currentUser);
-                navigate("/browse");
             } catch (error) {
                 setErrorMessage(error.message);
                 navigate("/error");

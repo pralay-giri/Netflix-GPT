@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LOGO_IMAGE } from "../utils/constant";
 import { useSelector } from "react-redux";
-import { signOut } from "firebase/auth";
-import { removeUser } from "../../store/userSlice";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { addUser, removeUser } from "../../store/userSlice";
 import { useDispatch } from "react-redux";
-import { auth } from "../../firebase";
+import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector((state) => state.user);
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const { uid, email, displayName, photoURL } = user;
+                dispatch(addUser({ uid, email, displayName, photoURL }));
+                navigate("/browse");
+            } else {
+                dispatch(removeUser());
+                navigate("/");
+            }
+        });
+    }, []);
+
     const handleSignout = async () => {
         try {
             await signOut(auth);
             dispatch(removeUser());
-            navigate("/");
         } catch (error) {
             console.log(error);
         }
