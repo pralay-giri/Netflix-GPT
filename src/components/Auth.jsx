@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import {
-    BACKGROUND_IMGAE,
-    DEFAULT_PROFILE,
-    LOGO_IMAGE,
-} from "../utils/constant";
+import { BACKGROUND_IMGAE, DEFAULT_PROFILE } from "../utils/constant";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addUser } from "../../store/userSlice";
+import { addUser } from "../store/userSlice";
 import { validateData } from "../utils/validate";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";

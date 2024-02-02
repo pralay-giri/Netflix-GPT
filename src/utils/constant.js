@@ -5,3 +5,19 @@ export const LOGO_IMAGE =
     "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png";
 export const DEFAULT_PROFILE =
     "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png";
+
+export const API_OPTION = {
+    method: "GET",
+    headers: {
+        accept: "application/json",
+        Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NjA4YzI0ZDg4ZWEyMmZkODNiYzdlMzIyYzJiZjQ5ZSIsInN1YiI6IjY1YmJhY2E1MTFjMDY2MDE3YmQwOTdlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rPWS65tsb-OIOE-lqtaz26JZ7AwBwV0Bzc_HJbcDgCk",
+    },
+};
+
+export const API_KEY =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NjA4YzI0ZDg4ZWEyMmZkODNiYzdlMzIyYzJiZjQ5ZSIsInN1YiI6IjY1YmJhY2E1MTFjMDY2MDE3YmQwOTdlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rPWS65tsb-OIOE-lqtaz26JZ7AwBwV0Bzc_HJbcDgCk";
+
+export const NOW_PLAYING_MOVIE_API_LINK =
+    "https://api.themoviedb.org/3/movie/now_playing";
+
