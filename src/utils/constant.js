@@ -21,3 +21,13 @@ export const API_KEY =
 export const NOW_PLAYING_MOVIE_API_LINK =
     "https://api.themoviedb.org/3/movie/now_playing";
 
+export const POPULER_PLAYING_MOVIE_API_LINK =
+    "https://api.themoviedb.org/3/movie/popular";
+
+export const TOP_RATED_MOVIE_API_LINK =
+    "https://api.themoviedb.org/3/movie/top_rated";
+
+export const UPCOMMING_MOVIE_API_LINK =
+    "https://api.themoviedb.org/3/movie/upcoming";
+
+export const POSTER_CDN = "https://image.tmdb.org/t/p/w500/";
