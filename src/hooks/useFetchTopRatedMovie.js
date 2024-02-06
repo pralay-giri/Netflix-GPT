@@ -12,11 +12,8 @@ const useFetchTopRatedMovie = (page = 1) => {
                 TOP_RATED_MOVIE_API_LINK + `?page${page}`,
                 API_OPTION
             );
-            console.log(responce.data?.results);
             dispatch(addTopRatedMovie(responce?.data?.results));
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
     useEffect(() => {
         fetchData(page);

@@ -23,9 +23,7 @@ const useMovieTraler = (movieId) => {
                 : responce?.data?.results[0];
 
             dispatch(addMovieTraler(selectedTraler));
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
 
     useEffect(() => {

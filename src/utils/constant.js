@@ -10,13 +10,9 @@ export const API_OPTION = {
     method: "GET",
     headers: {
         accept: "application/json",
-        Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NjA4YzI0ZDg4ZWEyMmZkODNiYzdlMzIyYzJiZjQ5ZSIsInN1YiI6IjY1YmJhY2E1MTFjMDY2MDE3YmQwOTdlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rPWS65tsb-OIOE-lqtaz26JZ7AwBwV0Bzc_HJbcDgCk",
+        Authorization: "Bearer " + import.meta.env.VITE_TMDB_API_KEY,
     },
 };
-
-export const API_KEY =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NjA4YzI0ZDg4ZWEyMmZkODNiYzdlMzIyYzJiZjQ5ZSIsInN1YiI6IjY1YmJhY2E1MTFjMDY2MDE3YmQwOTdlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rPWS65tsb-OIOE-lqtaz26JZ7AwBwV0Bzc_HJbcDgCk";
 
 export const NOW_PLAYING_MOVIE_API_LINK =
     "https://api.themoviedb.org/3/movie/now_playing";
@@ -31,3 +27,21 @@ export const UPCOMMING_MOVIE_API_LINK =
     "https://api.themoviedb.org/3/movie/upcoming";
 
 export const POSTER_CDN = "https://image.tmdb.org/t/p/w500/";
+
+export const FOOTER_OTHER_LINKS = [
+    "Audio and Subtitles",
+    "Media Center",
+    "pnvacy",
+    "Contact CJs",
+    "Audio Description",
+    "Investor Relations",
+    "Leaal Notices",
+    "Help Center",
+    "Jobs",
+    "Cookie Preterences",
+    "Gitt Cards",
+    "Terms of Use",
+    "Corporate Information",
+];
+
+export const SEARCH_API = "https://api.themoviedb.org/3/search/movie?";

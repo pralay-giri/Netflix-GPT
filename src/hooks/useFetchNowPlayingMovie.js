@@ -15,9 +15,7 @@ export const useFetchNowPlayingMovie = (page = 1) => {
             );
 
             dispatch(addNowPlayingMovie(responce?.data?.results));
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
 
     useEffect(() => {

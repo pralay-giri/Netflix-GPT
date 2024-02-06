@@ -12,11 +12,8 @@ const useFetchUpcommingMovie = (page = 1) => {
                 UPCOMMING_MOVIE_API_LINK + `?page${page}`,
                 API_OPTION
             );
-            console.log(responce.data?.results);
             dispatch(addUpcommingMovie(responce?.data?.results));
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
     useEffect(() => {
         fetchData(page);

@@ -6,11 +6,15 @@ import { addUser, removeUser } from "../store/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { toogleGptPage } from "../store/gptSlice";
 
 const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector((state) => state.user);
+    const toogleGptPageView = useSelector(
+        (state) => state.gptSlice.toogleGptPageView
+    );
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -32,10 +36,13 @@ const Header = () => {
         try {
             await signOut(auth);
             dispatch(removeUser());
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
+
+    const handleGptBtnClick = () => {
+        dispatch(toogleGptPage());
+    };
+
     return (
         <header className="w-screen flex justify-between fixed top-0 z-20 px-12 bg-gradient-to-b  from-black">
             <div className="">
@@ -43,17 +50,28 @@ const Header = () => {
             </div>
             {user && (
                 <div className="flex items-center gap-5">
-                    <img
-                        src={user.photoURL}
-                        alt="profile"
-                        className="w-12 object-cover object-center"
-                    />
+                    <button
+                        onClick={handleGptBtnClick}
+                        className="font-semibold h-fit px-2 py-1 rounded-sm bg-gray-700  text-white hover:bg-opacity-85 hover:text-gray-300"
+                    >
+                        {toogleGptPageView ? "Home" : "GPT search"}
+                    </button>
                     <button
                         onClick={handleSignout}
-                        className="font-semibold h-fit px-2 py-1 rounded-sm bg-red-600 text-white hover:bg-opacity-85"
+                        className="font-semibold h-fit px-2 py-1 rounded-sm bg-red-600 text-white hover:bg-opacity-85 hover:text-gray-300"
                     >
                         sign out
                     </button>
+                    <div className="flex flex-col justify-center items-center cursor-pointer">
+                        <img
+                            src={user.photoURL}
+                            alt="profile"
+                            className="w-9 rounded-sm object-cover object-center"
+                        />
+                        <p className="text-white text-sm w-14 whitespace-nowrap overflow-hidden text-ellipsis">
+                            {user.displayName}
+                        </p>
+                    </div>
                 </div>
             )}
         </header>

@@ -6,14 +6,10 @@ const MovieList = ({ title, movies }) => {
         <div className="w-[100%] container px-10">
             <h1 className="text-2xl font-bold py-5">{title}</h1>
             <div className="flex overflow-x-auto">
-                <div className="flex gap-5">
-                    {movies?.map((movie) => (
-                        <MovieCard
-                            movie={movie}
-                            key={movie.id}
-                            className="w-64 px-4 cursor-pointer"
-                        />
-                    ))}
+                <div className="flex gap-2">
+                    {movies?.map((movie) => {
+                        return <MovieCard movie={movie} key={movie.id} />;
+                    })}
                 </div>
             </div>
         </div>

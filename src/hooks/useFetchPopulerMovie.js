@@ -12,11 +12,8 @@ const useFetchPopulerMovie = (page = 1) => {
                 POPULER_PLAYING_MOVIE_API_LINK + `?page${page}`,
                 API_OPTION
             );
-            console.log(responce.data?.results);
             dispatch(addPopulerMovie(responce?.data?.results));
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
     useEffect(() => {
         fetchData(page);
